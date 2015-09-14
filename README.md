@@ -16,33 +16,50 @@ node-environment can define multiple environments(ex. dev, staging, production) 
     var options = {};
     var values = environment(options);
     console.log(values)
+#####Output
+    {
+        "propertyBoolean": true,
+        "propertyNumber": 1111,
+        "propertyString": "string property",
+        "propertyOverride": "value override",
+        "port": 8080
+	}
 
 ### Load Environment with $base file
     var environment = require("node-environment");
     var values = environment();
     console.log(values.propertyString);
+#####Output
+    string property
 
 ### Property override
     var environment = require("node-environment");
     var values = environment();
     console.log(values.propertyOverride);
+#####Output
+    value override
 
 ### Load Specific environment
     // HOST NAME : dev-host (hostname is automatically detect)
     var environment = require("node-environment");
     var values = environment();
     console.log(values.isDev);
+#####Output
+    true
 
 ### Load Specific environment with environment parameter
     var environment = require("node-environment");
     var values = environment({ "hostName" : "dev-host" });
     console.log(values.isDev);
+#####Output
+    true
 
 ### Load multiple environment 
     var environment = require("node-environment");
     var values = environment({ "hostName" : "dev-host" });
-    console.log(values.isDev);
-    console.log(values.isMaster);
+    console.log("dev : " + values.isDev + " / master : " + values.isMaster);
+#####Output
+    dev : true / master : true
 
 ### Example Environment Files
 *example environment files in same directory with index.js.*
@@ -90,3 +107,5 @@ node-environment can define multiple environments(ex. dev, staging, production) 
 
 
 #Options
+
+*documentation is not yet :(*
