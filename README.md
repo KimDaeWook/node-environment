@@ -1,16 +1,7 @@
 #node-environments
 
-The node-environment is Light-weight environment(settings) JSON file parser for node.js. node-environment  can define multiple environments(ex. dev, staging, production) in single environment file. and provides environment values from matched environment conditions.
-
--------
-
-##Basic useful features
-
- 1. JSON 파일을 이용한 환경설정
- 2. 속성 Override
- 3. 조건에 따른 환경 선택
- 4. Custom condition handler 제공
- 4. Command line으로 환경 값 입력 
+The node-environment is Light-weight environment(settings) JSON file parser for node.js. 
+node-environment can define multiple environments(ex. dev, staging, production) in single environment file. and provides environment values from matched environment conditions.
 
 #Install
 
@@ -20,7 +11,41 @@ The node-environment is Light-weight environment(settings) JSON file parser for 
 
 > npm test
 
+### Get Started
+    var environment = require("node-environment");
+    var options = {};
+    var values = environment(options);
+    console.log(values)
+
+### Load Environment with $base file
+    var environment = require("node-environment");
+    var values = environment();
+    console.log(values.propertyString);
+
+### Property override
+    var environment = require("node-environment");
+    var values = environment();
+    console.log(values.propertyOverride);
+
+### Load Specific environment
+    // HOST NAME : dev-host (hostname is automatically detect)
+    var environment = require("node-environment");
+    var values = environment();
+    console.log(values.isDev);
+
+### Load Specific environment with environment parameter
+    var environment = require("node-environment");
+    var values = environment({ "hostName" : "dev-host" });
+    console.log(values.isDev);
+
+### Load multiple environment 
+    var environment = require("node-environment");
+    var values = environment({ "hostName" : "dev-host" });
+    console.log(values.isDev);
+    console.log(values.isMaster);
+
 ### Example Environment Files
+*example environment files in same directory with index.js.*
 
 #### environments.json
     {
@@ -63,26 +88,5 @@ The node-environment is Light-weight environment(settings) JSON file parser for 
 	    "port" : 80
 	}
 
-### BASIC - Load Environment from JSON file
 
-    var environment = require("node-environment");
-    var values = environment();
-    console.log(values)
-
-#### Output
-    {
-	    "propertyBoolean" : true,
-	    "propertyNumber" : 1111,
-	    "propertyString" : "string property"
-    }
-    
-#### environments.json
-
-    {
-	    "$default" : {
-		    "propertyBoolean" : true,
-		    "propertyNumber" : 1111,
-		    "propertyString" : "string property"
-	    }
-    }
-
+#Options
