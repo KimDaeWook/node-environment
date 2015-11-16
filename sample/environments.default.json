@@ -1,0 +1,6 @@
+{
+    "propertyBoolean" : true,
+    "propertyNumber" : 1111,
+    "propertyString" : "string property",
+    "propertyOverride" : "value"
+}

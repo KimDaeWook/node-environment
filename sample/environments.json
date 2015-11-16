@@ -1,0 +1,24 @@
+{
+    "Development" : {
+        "$conditions" : {
+            "hostName" : "dev-host"
+        },
+        "isMaster" : false,
+        "isDev" : true,
+        "port" : 10080
+    },
+    
+    "Master" : {
+        "$conditions" : {
+            "hostName" : ["dev-host", "master-host"]
+        },
+        "$base" : "environments.master.json",
+        "isMaster" : true      
+    },
+        
+    "$default" : {
+        "$base" : "environments.default.json",
+        "port" : 8080,
+        "propertyOverride" : "value override"        
+    }    
+}

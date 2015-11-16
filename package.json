@@ -1,0 +1,17 @@
+{
+  "name": "node-environment",
+  "version": "0.0.1",
+  "description": "Environment helper for Node.js",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "KimDeawook",
+  "license": "ISC",
+  "dependencies": {
+    "optimist": "^0.6.1"
+  }
+}
